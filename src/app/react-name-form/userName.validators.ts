@@ -24,7 +24,7 @@ static cannotContainSpace(control:AbstractControl) :ValidationErrors | null{
             }
             
             
-        },200);
+        },2000);
     });
     
         
