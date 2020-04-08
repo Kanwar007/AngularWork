@@ -16,4 +16,11 @@ export class ReactNameFormComponent  {
 
  );
 
+ get userName(){
+   return this.form.get('userName')
+ }
+ get password(){
+   return this.form.get('password')
+ }
+
 }
