@@ -73,7 +73,7 @@
         <label for="schoolTeam">Team </label>
           <select ngModel name="schoolTeam" id="schoolTeam" class="form-contract">
             <option value=""></option>
-            <option *ngFor="let method of schoolTeam"[value]="method.id">{{method.value}}
+            <option *ngFor="let team of schoolTeam"[ngValue]="team">{{team.color}}
 
             </option>
           </select>
