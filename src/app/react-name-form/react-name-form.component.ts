@@ -12,12 +12,13 @@ import { UserNameValidators } from './userName.validators';
 export class ReactNameFormComponent  {
  form= new FormGroup(
    {
-     userName: new FormControl('',[
-       Validators.required,
-       Validators.minLength(4),
-      UserNameValidators.cannotContainSpace,
-      UserNameValidators.shouldBeUniqure
-     ]),
+   //  userName: new FormControl('',[
+     //  Validators.required,
+   //    Validators.minLength(4),
+    //  UserNameValidators.cannotContainSpace,
+      //UserNameValidators.shouldBeUniqure
+     //]),
+     userName: new FormControl('',Validators.required,UserNameValidators.shouldBeUniqure),
      password: new FormControl('',Validators.required)
    }
 
