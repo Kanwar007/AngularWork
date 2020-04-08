@@ -20,5 +20,8 @@ export class ContactFormComponent implements OnInit {
   logPassword(y){
     console.log(y);
   }
+  submit(f){
+    console.log(f.value)
+  }
 
 }
