@@ -6,11 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-form.component.css']
 })
 export class ContactFormComponent implements OnInit {
+  contactMethods=[
+    {id:1,value:"Email"},
+    {id:2,value:"Phone"},
+    {id:3,value:"Mobile"} 
+       ]
+
+       schoolTeam=[{id:1,color:"red"},
+       {id:1,color:"green"},
+      {id:1,color:"blue"},
+       {id:1,color:"yello"},
+      ]
 
   constructor() { 
 
-    
+
   }
+
 
   ngOnInit(): void {
   }
