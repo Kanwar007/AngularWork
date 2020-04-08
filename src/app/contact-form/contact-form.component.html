@@ -61,8 +61,8 @@
       <label class="form-check-label" for="exampleCheck1" >Check me out</label>
       <div class="form-group">
         <label for="contactMethods">Contact method</label>
-          <select ngModel name="contactMethods" id="contactMethods" class="form-contract">
-            <option value=""></option>
+          <select multiple ngModel name="contactMethods" id="contactMethods" class="form-contract" >
+           
             <option *ngFor="let method of contactMethods"[value]="method.id">{{method.value}}
 
             </option>
@@ -71,12 +71,22 @@
 
       <div class="form-group">
         <label for="schoolTeam">Team </label>
-          <select ngModel name="schoolTeam" id="schoolTeam" class="form-contract">
-            <option value=""></option>
+          <select ngModel name="schoolTeam" id="schoolTeam" class="form-contract" >
+            <option value="0">Select</option>
             <option *ngFor="let team of schoolTeam"[ngValue]="team">{{team.color}}
 
             </option>
           </select>
+      </div>
+      <div class="radio">
+        <label > Select the state</label>
+        <input type="radio" ngModel name="stateName" value="1"  >
+
+      </div>
+      <div class="radio">
+        <label > Select the Country</label>
+        <input type="radio" ngModel name="countryName" value="2"  >
+
       </div>
       <p>
         {{f.value | json}}
