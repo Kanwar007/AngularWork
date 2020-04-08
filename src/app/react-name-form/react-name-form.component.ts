@@ -10,7 +10,10 @@ import { FormControl,FormGroup, Validators } from '@angular/forms';
 export class ReactNameFormComponent  {
  form= new FormGroup(
    {
-     userName: new FormControl('',Validators.required,),
+     userName: new FormControl('',[
+       Validators.required,
+       Validators.minLength(4)
+     ]),
      password: new FormControl('',Validators.required)
    }
 
