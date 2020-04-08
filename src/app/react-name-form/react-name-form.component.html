@@ -1,1 +1,25 @@
-<p> Reactive Form</p>
+<form [formGroup]="form">
+    <div class="form-group">
+      <label for="userName">User Name</label>
+      <input 
+      formControlName="userName"
+      type="text" class="form-control" 
+      id="userName" aria-describedby="userNameHelp" 
+      placeholder="Enter user name">
+      <small id="userNameHelp" class="form-text text-muted">We'll never share your user Name with anyone else.</small>
+    <div *ngIf="form.get('userName').touched && form.get('userName').invalid" class="alert alert-danger"> User name is required</div>
+    </div>
+
+    <div class="form-group">
+      <label for="password1">Password</label>
+      <input 
+      formControlName="password"
+      type="password" 
+      class="form-control" 
+      d="password1" 
+      placeholder="Password">
+      <div class="alert alert-danger"> Password is required </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
