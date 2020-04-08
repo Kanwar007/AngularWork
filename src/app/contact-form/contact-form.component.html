@@ -1,15 +1,19 @@
 <form>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input required ngModel name="exampleInputEmail1" #emailName ="ngModel" (change)="log(emailName)" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <input required pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" ngModel name="exampleInputEmail1" #emailName ="ngModel" (change)="log(emailName)" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-       <div class="alert alert-danger" *ngIf="emailName.touched && !emailName.valid">  Enter the email address </div>
+       <div class="alert alert-danger" *ngIf="emailName.touched && !emailName.valid">  
+         <div *ngIf="emailName.errors.required">Enter the email address.</div> 
+         <div *ngIf="emailName.errors.pattern">Enter Valid email address.</div>
+        </div>
     </div>
     <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input required ngModel name="exampleInputPassword1" #passwordName = "ngModel" (change)="logPassword(passwordName)"type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-       <div class="alert alert-danger" *ngIF="passwordName.touched && !passwordName.valid">
-        Enter the password 
+      <input required minlength="9" maxlength="32"  ngModel name="exampleInputPassword1" #passwordName="ngModel" (change)="logPassword(passwordName)" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+       <div class="alert alert-danger" *ngIf="passwordName.touched && !passwordName.valid">
+        <div *ngIf="passwordName.errors.required">Enter the password </div>
+        <div *ngIf="passwordName.errors.minlength">min lenght {{passwordName.errors.minlength.requiredLength}} </div>
        </div>
     </div>
     <div class="form-check">
