@@ -7,3 +7,8 @@ body  {
       background-color:white;
        margin: 40px; 
     }
+
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+
+}
