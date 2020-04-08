@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
+import { UserNameValidators } from './userName.validators';
+
 
 
 @Component({
@@ -12,7 +14,9 @@ export class ReactNameFormComponent  {
    {
      userName: new FormControl('',[
        Validators.required,
-       Validators.minLength(4)
+       Validators.minLength(4),
+      UserNameValidators.cannotContainSpace,
+      UserNameValidators.shouldBeUniqure
      ]),
      password: new FormControl('',Validators.required)
    }

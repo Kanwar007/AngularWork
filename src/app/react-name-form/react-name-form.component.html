@@ -13,6 +13,13 @@
             username max lenght {{userName.errors.minlength.requiredLength}}
     </div>
     
+    <div *ngIf="userName.errors.cannotContainSpace">
+        username not contain space
+</div>
+<div *ngIf="userName.errors.shouldBeUniqure">
+    username is already exit
+
+</div>
     </div>
     </div>
     <div class="form-group">
