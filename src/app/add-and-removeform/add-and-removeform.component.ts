@@ -19,12 +19,13 @@ export class AddAndRemoveformComponent implements OnInit {
   });
   addTopic(topic : HTMLInputElement){
     this.topics.push(new FormControl(topic.value))
+    
     topic.value=''
   }
   removeTopic(topic: FormControl){
     let topicIn =this.topics.controls.indexOf(topic);
     this.topics.removeAt(topicIn);
-    
+
   }
   get topics(){
     return this.form.get('topics') as FormArray;
