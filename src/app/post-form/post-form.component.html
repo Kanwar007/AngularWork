@@ -1,1 +1,15 @@
-<p>post-form works!</p>
+
+<input 
+(keyup.entry)="creatpost(title)" #title
+type="text" class="form-control"
+
+>
+
+<ul class="list-group">
+    <li 
+      *ngFor="let item of post"
+      
+    class="list-group-item">
+   {{item.userId}} --- {{item.title}}
+    </li>
+</ul>
