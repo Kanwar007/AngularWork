@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Wed Apr 08 2020 22:54:03 GMT+0800 (Australian Western Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/react-name-form/react-name-form.component.html
+* src/app/react-name-form/react-name-form.component.ts
+* src/app/react-name-form/userName.validators.ts
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:

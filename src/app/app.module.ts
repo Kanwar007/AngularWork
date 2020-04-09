@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ReactNameFormComponent } from './react-name-form/react-name-form.component'
+import { ReactNameFormComponent } from './react-name-form/react-name-form.component';
+import { AddAndRemoveformComponent } from './add-and-removeform/add-and-removeform.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactFormComponent,
-    ReactNameFormComponent
+    ReactNameFormComponent,
+    AddAndRemoveformComponent
   ],
   imports: [
     BrowserModule,
