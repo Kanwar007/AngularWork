@@ -11,8 +11,8 @@ import {postUser} from './postUser'
   styleUrls: ['./post-form.component.css']
 })
 export class PostFormComponent  {
-  postUser1 : postUser
- user:GithubUser
+  postUser1 : postUser[];
+ user:GithubUser;
  url1='https://jsonplaceholder.typicode.com/posts'
  url="https://api.github.com/users"
   constructor(private http: HttpClient ) { 
@@ -24,9 +24,10 @@ export class PostFormComponent  {
       }
       
       );
-      this.http.get(this.url1).subscribe((data:postUser)=>{
+      this.http.get(this.url1).subscribe((data:postUser[])=>{
          console.log(data);
-         this.postUser1=data
+        
+         this.postUser1 = data;
       }
       )
   }
@@ -66,9 +67,15 @@ export class PostFormComponent  {
       
     postuser['id'] = data.id;
      console.log(postuser)
+     this.postUser1.push(postuser);
+     
+     
+     
       
       
     });
+
+  
     
     
     
