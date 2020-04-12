@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Sun Apr 12 2020 09:16:33 GMT+0800 (Australian Western Standard Time)
+------------------------------------------------------
+
+Modified files:
+* src/app/post-form/post-form.component.html
+* src/app/post-form/post-form.component.ts
+
+
+Created files:
+* .autogit/logs/log-9-3-2020-16-57-19.txt
+
+
+Deleted files:
+
+
+Renamed files:

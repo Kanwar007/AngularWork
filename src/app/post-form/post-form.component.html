@@ -2,14 +2,25 @@
 <input 
 (keyup.enter)="creatPost(title)" #title
 type="text" class="form-control"
-
 >
 
+
+
+<ul class="list-group">
+  <li 
+    *ngFor="let item of post"
+    
+  class="list-group-item">
+{{}}
+  </li>
+</ul>
 <ul class="list-group">
     <li 
-      *ngFor="let item of post"
+      *ngFor="let item of user"
       
     class="list-group-item">
-   {{item.id}} --- {{item.login}}
+   {{item.id}} --- {{item.login}} 
+   ----{{item.avatar_url}} 
+   ----{{item.bio}}
     </li>
 </ul>
