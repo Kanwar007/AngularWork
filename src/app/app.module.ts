@@ -12,6 +12,7 @@ import { ReactNameFormComponent } from './react-name-form/react-name-form.compon
 import { AddAndRemoveformComponent } from './add-and-removeform/add-and-removeform.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { PostFormComponent } from './post-form/post-form.component'
+import { PostService } from './services/post.service';
 
 
 @NgModule({
@@ -30,7 +31,9 @@ import { PostFormComponent } from './post-form/post-form.component'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PostService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
