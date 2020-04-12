@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 
 import { Component, OnInit, Input } from '@angular/core';
 import{GithubUser} from './githubUser'
@@ -15,6 +15,7 @@ import { PostService } from '../services/post.service';
 export class PostFormComponent  {
   postUser1 : postUser[];
  user:GithubUser;
+ headers = new HttpHeaders().set('Content-Type', 'application/json');
  
   constructor(private postService : PostService ) { 
     postService.getGithubUser().
@@ -23,17 +24,10 @@ export class PostFormComponent  {
       //  console.log(response);
       console.log('TJ user data', data);
         this.user = data
-      },(error=>
-        {
-
-          alert('Unexpected error ');
-          console.log(error);
-        })
-      
+      }
       );
       postService.getPostUser().subscribe((data:postUser[])=>{
-         console.log(data);
-        
+         console.log(data);    
          this.postUser1 = data;
       }
       );
@@ -45,12 +39,7 @@ export class PostFormComponent  {
         // Note that we don't need parse the response, we can access
         // it directly through 'body' property
         console.log('HTTP response : body', response.body);
-      },(error=>
-        {
-
-          alert('Unexpected error ');
-          console.log(error);
-        }));
+      });
 
   }
 
@@ -68,19 +57,7 @@ export class PostFormComponent  {
     postuser['userId'] = data.id;
      console.log(postuser)
      this.postUser1.push(postuser);
-    }),(error=>
-      {
-
-        alert('Unexpected error ');
-        console.log(error);
-      });
-
-  
-    
-    
-    
-   
-
+    })
   }
 
   updatePost(postuser2)
@@ -96,12 +73,7 @@ export class PostFormComponent  {
     this.postService.updatePost(postuser2).subscribe((data : postUser)=>
     {
       console.log(data)
-    },(error=>
-      {
-
-        alert('Unexpected error ');
-        console.log(error);
-      }))
+    })
   }
 
   deletePost(postuser3){
@@ -116,16 +88,18 @@ export class PostFormComponent  {
 
       console.log(this.postUser1.length)
       
-    },((error:Response)=>
-      {
-    if(error.status === 404){
-      alert('id does not exist  error ');
-    }else{
-      alert('Unexpected error ');
-      console.log(error);
-    }
+    }//,((error:Response)=>
+     // {
+    //if(error.status === 404){
+   //   alert('id does not exist  error ');
+   // }else{
+   //   alert('Unexpected error ');
+   //   console.log(error);
+   // }
        
-      }));
+     // })
+      
+      );
   
     
   }
