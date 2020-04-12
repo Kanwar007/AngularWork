@@ -2,6 +2,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 
 import { Component, OnInit, Input } from '@angular/core';
 import{GithubUser} from './githubUser'
+import {postUser} from './postUser'
 
 
 @Component({
@@ -10,7 +11,8 @@ import{GithubUser} from './githubUser'
   styleUrls: ['./post-form.component.css']
 })
 export class PostFormComponent  {
- post : any
+  postUser1 : postUser
+ user:GithubUser
  url1='https://jsonplaceholder.typicode.com/posts'
  url="https://api.github.com/users"
   constructor(private http: HttpClient ) { 
@@ -18,9 +20,14 @@ export class PostFormComponent  {
       {
       //  console.log(response);
       console.log('TJ user data', data);
-        this.post = data
+        this.user = data
       }
       
+      );
+      this.http.get(this.url1).subscribe((data:postUser)=>{
+         console.log(data);
+         this.postUser1=data
+      }
       )
   }
   ngOnInit(): void {
@@ -50,13 +57,15 @@ export class PostFormComponent  {
     }
 
   creatPost(input : HTMLInputElement){
-   let post:any = {title : input.value};
+   let postuser:any = {title : input.value};
    input.value='';
-    this.http.post(this.url1,JSON.stringify(post))
-    .subscribe((data :Response)=> {
+    this.http.post(this.url1,JSON.stringify(postuser))
+    .subscribe((data :postUser)=> {
      // this.post.splice(0,0,post);
       console.log(data);
-      this.post.push(data)
+      
+    postuser['id'] = data.id;
+     console.log(postuser)
       
       
     });
