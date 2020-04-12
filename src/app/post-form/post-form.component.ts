@@ -15,7 +15,7 @@ import { PostService } from '../services/post.service';
 export class PostFormComponent  {
   postUser1 : postUser[];
  user:GithubUser;
- headers = new HttpHeaders().set('Content-Type', 'application/json');
+
  
   constructor(private postService : PostService ) { 
     postService.getGithubUser().
