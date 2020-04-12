@@ -1,6 +1,6 @@
 
 <input 
-(keyup.entry)="creatpost(title)" #title
+(keyup.enter)="creatPost(title)" #title
 type="text" class="form-control"
 
 >
@@ -10,6 +10,6 @@ type="text" class="form-control"
       *ngFor="let item of post"
       
     class="list-group-item">
-   {{item.userId}} --- {{item.title}}
+   {{item.id}} --- {{item.login}}
     </li>
 </ul>
