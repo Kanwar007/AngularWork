@@ -17,12 +17,18 @@ export class PostFormComponent  {
  user:GithubUser;
  
   constructor(private postService : PostService ) { 
-    postService.getGithubUser().subscribe((data: GithubUser)=>
-      {
+    postService.getGithubUser().
+         subscribe((data: GithubUser)=>
+         {
       //  console.log(response);
       console.log('TJ user data', data);
         this.user = data
-      }
+      },(error=>
+        {
+
+          alert('Unexpected error ');
+          console.log(error);
+        })
       
       );
       postService.getPostUser().subscribe((data:postUser[])=>{
@@ -39,7 +45,12 @@ export class PostFormComponent  {
         // Note that we don't need parse the response, we can access
         // it directly through 'body' property
         console.log('HTTP response : body', response.body);
-      });
+      },(error=>
+        {
+
+          alert('Unexpected error ');
+          console.log(error);
+        }));
 
   }
 
@@ -57,7 +68,12 @@ export class PostFormComponent  {
     postuser['userId'] = data.id;
      console.log(postuser)
      this.postUser1.push(postuser);
-    });
+    }),(error=>
+      {
+
+        alert('Unexpected error ');
+        console.log(error);
+      });
 
   
     
@@ -80,11 +96,16 @@ export class PostFormComponent  {
     this.postService.updatePost(postuser2).subscribe((data : postUser)=>
     {
       console.log(data)
-    })
+    },(error=>
+      {
+
+        alert('Unexpected error ');
+        console.log(error);
+      }))
   }
 
   deletePost(postuser3){
-    this.postService.deletePost(postuser3.id).subscribe(Response=> {
+    this.postService.deletePost('345').subscribe(Response=> {
 
   
    
@@ -95,7 +116,16 @@ export class PostFormComponent  {
 
       console.log(this.postUser1.length)
       
-    });
+    },((error:Response)=>
+      {
+    if(error.status === 404){
+      alert('id does not exist  error ');
+    }else{
+      alert('Unexpected error ');
+      console.log(error);
+    }
+       
+      }));
   
     
   }
