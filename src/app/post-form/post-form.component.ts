@@ -2,7 +2,8 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 
 import { Component, OnInit, Input } from '@angular/core';
 import{GithubUser} from './githubUser'
-import {postUser} from './postUser'
+import { postUser } from './postUser';
+import { join } from 'path';
 
 
 @Component({
@@ -11,7 +12,7 @@ import {postUser} from './postUser'
   styleUrls: ['./post-form.component.css']
 })
 export class PostFormComponent  {
-  postUser1 : postUser[];
+  postUser1 : any[];
  user:GithubUser;
  url1='https://jsonplaceholder.typicode.com/posts'
  url="https://api.github.com/users"
@@ -65,14 +66,9 @@ export class PostFormComponent  {
      // this.post.splice(0,0,post);
       console.log(data);
       
-    postuser['id'] = data.id;
+    postuser['userId'] = data.id;
      console.log(postuser)
      this.postUser1.push(postuser);
-     
-     
-     
-      
-      
     });
 
   
@@ -81,6 +77,22 @@ export class PostFormComponent  {
     
    
 
+  }
+
+  updatePost(post)
+  {
+
+  
+    this.http.patch(this.url1+'/'+post.id,JSON.stringify({isRead :true}))
+    .subscribe((data:Response)=>
+    {
+       console.log(data);
+    }
+    )
+    this.http.put(this.url1+'/'+post.id,JSON.stringify(post)).subscribe((data : Response)=>
+    {
+      console.log(data)
+    })
   }
 
   

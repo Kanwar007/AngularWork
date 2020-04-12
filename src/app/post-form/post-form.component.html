@@ -15,6 +15,9 @@ type="text" class="form-control"
     *ngFor="let item1 of postUser1"
     
   class="list-group-item">
+  <button 
+  (click)="updatePost(item1)"
+  class="btn btn-default btn-warning"> update </button>
 {{item1.userId}} ---{{item1.title}}
   </li>
 </ul>
