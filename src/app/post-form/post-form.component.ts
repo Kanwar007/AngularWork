@@ -3,7 +3,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
 import{GithubUser} from './githubUser'
 import { postUser } from './postUser';
-import { join } from 'path';
+
 
 
 @Component({
@@ -79,20 +79,37 @@ export class PostFormComponent  {
 
   }
 
-  updatePost(post)
+  updatePost(postuser2)
   {
 
   
-    this.http.patch(this.url1+'/'+post.id,JSON.stringify({isRead :true}))
+    this.http.patch(this.url1+'/'+postuser2.id,JSON.stringify({isRead :true}))
     .subscribe((data:Response)=>
     {
        console.log(data);
     }
     )
-    this.http.put(this.url1+'/'+post.id,JSON.stringify(post)).subscribe((data : Response)=>
+    this.http.put(this.url1+'/'+postuser2.id,JSON.stringify(postuser2)).subscribe((data : postUser)=>
     {
       console.log(data)
     })
+  }
+
+  deletePost(postuser3){
+    this.http.delete(this.url1+'/'+postuser3.id).subscribe(Response=> {
+
+  
+   
+      let index = this.postUser1.indexOf(postuser3);
+      console.log(index);
+      console.log(this.postUser1.length)
+      this.postUser1.slice(index,1);
+
+      console.log(this.postUser1.length)
+      
+    });
+  
+    
   }
 
   
