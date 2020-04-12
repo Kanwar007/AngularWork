@@ -12,7 +12,7 @@ import { postUser } from './postUser';
   styleUrls: ['./post-form.component.css']
 })
 export class PostFormComponent  {
-  postUser1 : any[];
+  postUser1 : postUser[];
  user:GithubUser;
  url1='https://jsonplaceholder.typicode.com/posts'
  url="https://api.github.com/users"
