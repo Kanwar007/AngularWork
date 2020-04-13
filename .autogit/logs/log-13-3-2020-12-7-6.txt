@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Mon Apr 13 2020 12:07:06 GMT+0800 (Australian Western Standard Time)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-12-3-2020-17-2-9.txt
+
+
+Deleted files:
+
+
+Renamed files:
