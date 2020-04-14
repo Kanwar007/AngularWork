@@ -11,7 +11,7 @@ import { retry, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class PostService {
-  url1='https://11jsonplaceholder.typicode.com/posts'
+  url1='https://jsonplaceholder.typicode.com/posts'
   url="https://api.github.com/users"
   headers = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private http : HttpClient) { 
@@ -80,7 +80,7 @@ export class PostService {
     if (error.error instanceof ErrorEvent) {
       errorMessage = 'error.error.message';
     } else {
-     // errorMessage = `Error Code: ${error.status}\nMessage:${error.message} `;
+      errorMessage = `Error Code: ${error.status}\nMessage:${error.message} `;
       errorMessage='The username and password dont match. You can quickly retrieve your username or reset your password now in just a few clicks:</ br><ul><li><a href="/my-account.html?forgot-username" target="_blank">Retrieve your username</a></li><li><a href="/my-account.html?forgot-password" target="_blank">Reset your password</a></li></ul>'
     }
     console.log(errorMessage);
